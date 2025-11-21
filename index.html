@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>منتجاتنا</title>
+    <meta charset='utf-8'>
+</head>
+<body>
+    <h1>منتجاتنا</h1>
+    <div id='products'></div>
+    <script>
+        fetch('products.json')
+            .then(r => r.json())
+            .then(products => {
+                const container = document.getElementById('products');
+                products.forEach(p => {
+                    container.innerHTML += '<div><h3>' + p.Name + '</h3><p>السعر: ' + p.Price + ' جنيه</p><a href="product' + p.ID + '.html">عرض التفاصيل</a></div>';
+                });
+            });
+    </script>
+</body>
+</html>
